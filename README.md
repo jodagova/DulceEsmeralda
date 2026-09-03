@@ -42,6 +42,21 @@ mvn spring-boot:run
 Ninguna credencial se guarda en el repositorio. Para configuración local usar
 `src/main/resources/application-local.properties` (ignorado por Git).
 
+## Despliegue en Render (demo)
+
+El repo incluye [`Dockerfile`](Dockerfile) y [`render.yaml`](render.yaml).
+
+1. En [render.com](https://render.com) → **New** → **Blueprint** y conectá el repo `jodagova/DulceEsmeralda`.
+2. Render lee `render.yaml` y crea un Web Service (plan free, Docker).
+3. Al terminar el build queda en `https://dulce-esmeralda.onrender.com`.
+
+La demo corre con perfil `dev` (**H2 en memoria**): los datos se reinician en cada
+redeploy y cuando el plan free suspende el servicio por inactividad (~15 min).
+La contraseña del admin la genera Render — se ve en **Environment → APP_ADMIN_PASSWORD**.
+
+Para datos persistentes: crear un Postgres/MySQL en Render, agregar el driver y
+pasar a perfil `prod` con las variables `DB_URL` / `DB_USERNAME` / `DB_PASSWORD`.
+
 ## Estructura
 
 ```
