@@ -20,6 +20,7 @@
 
     <properties>
         <java.version>21</java.version>
+        <start-class>com.dulceesmeralda.DulceEsmeraldaApplication</start-class>
     </properties>
 
     <dependencies>
