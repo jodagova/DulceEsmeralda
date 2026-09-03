@@ -35,8 +35,9 @@ h1, h2, h3, .navbar-brand .brand-nombre {
 }
 
 .brand-logo {
-    height: 44px;
+    height: 46px;
     width: auto;
+    mix-blend-mode: multiply;
 }
 
 .brand-nombre {
@@ -57,15 +58,18 @@ h1, h2, h3, .navbar-brand .brand-nombre {
 
 /* HERO */
 .hero-esmeralda {
-    background-color: var(--crema-oscura);
-    padding: 4rem 0;
+    background: radial-gradient(ellipse at 50% 35%, #ffffff 0%, #ffffff 42%, var(--crema-oscura) 100%);
+    padding: 3.5rem 0 4rem;
     text-align: center;
+    border-bottom: 3px solid var(--dorado);
 }
 
 .hero-esmeralda .hero-logo {
-    max-width: 220px;
+    max-width: 320px;
+    width: 60%;
     height: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 0.5rem;
+    mix-blend-mode: multiply;
 }
 
 .hero-esmeralda h1 {
@@ -120,9 +124,9 @@ h1, h2, h3, .navbar-brand .brand-nombre {
 
 .footer-esmeralda a { color: #f4efe4; }
 .footer-esmeralda .footer-logo {
-    height: 60px;
+    height: 72px;
     width: auto;
-    background: var(--crema);
-    padding: 4px;
-    border-radius: 8px;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 10px;
 }
