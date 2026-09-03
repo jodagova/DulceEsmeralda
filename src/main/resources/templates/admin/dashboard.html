@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{general/fragmentos :: head}"></head>
+<body>
+
+<header th:replace="~{general/fragmentos :: header}"></header>
+
+<main class="container my-5">
+    <h1 class="h3 mb-4">Panel de administracion</h1>
+
+    <div class="row g-3 mb-4">
+        <div class="col-6 col-md-3">
+            <div class="card text-center producto-card">
+                <div class="card-body">
+                    <div class="h2 text-esmeralda mb-0" th:text="${totalProductos}">0</div>
+                    <div class="small text-muted">Productos</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-3">
+            <div class="card text-center producto-card">
+                <div class="card-body">
+                    <div class="h2 text-esmeralda mb-0" th:text="${totalCategorias}">0</div>
+                    <div class="small text-muted">Categorias</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <p class="text-muted small">
+        Borrador inicial. Pendiente: pantallas de alta/edicion de productos, categorias, pedidos y usuarios.
+    </p>
+
+    <table class="table table-sm align-middle">
+        <thead>
+        <tr><th>Producto</th><th>Categoria</th><th class="text-end">Precio</th><th>Disponible</th><th>Destacado</th></tr>
+        </thead>
+        <tbody>
+        <tr th:each="p : ${productos}">
+            <td th:text="${p.nombre}">-</td>
+            <td th:text="${p.categoria != null ? p.categoria.descripcion : '-'}">-</td>
+            <td class="text-end" th:text="${#numbers.formatDecimal(p.precio, 1, 'COMMA', 0, 'POINT')}">0</td>
+            <td><i class="fa-solid" th:classappend="${p.disponible} ? 'fa-check text-success' : 'fa-xmark text-muted'"></i></td>
+            <td><i class="fa-solid" th:classappend="${p.destacado} ? 'fa-star text-warning' : 'fa-minus text-muted'"></i></td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<footer th:replace="~{general/fragmentos :: footer}"></footer>
+</body>
+</html>

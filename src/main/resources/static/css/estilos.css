@@ -1,0 +1,54 @@
+:root {
+    --esmeralda: #1f7a5a;
+    --esmeralda-oscuro: #14503b;
+    --crema: #f7f3ec;
+}
+
+body {
+    background-color: var(--crema);
+    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+}
+
+.navbar-esmeralda {
+    background-color: var(--esmeralda);
+}
+
+.footer-esmeralda {
+    background-color: var(--esmeralda-oscuro);
+    color: #fff;
+}
+
+.text-esmeralda {
+    color: var(--esmeralda) !important;
+}
+
+.btn-esmeralda {
+    background-color: var(--esmeralda);
+    border-color: var(--esmeralda);
+    color: #fff;
+}
+
+.btn-esmeralda:hover {
+    background-color: var(--esmeralda-oscuro);
+    border-color: var(--esmeralda-oscuro);
+    color: #fff;
+}
+
+.hero-esmeralda {
+    min-height: 320px;
+    background: linear-gradient(rgba(20, 80, 59, 0.75), rgba(20, 80, 59, 0.75)),
+                url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=60") center/cover;
+}
+
+.categoria-card,
+.producto-card {
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.categoria-card:hover,
+.producto-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
