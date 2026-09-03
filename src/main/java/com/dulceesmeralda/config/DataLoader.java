@@ -53,21 +53,22 @@ public class DataLoader {
             }
 
             if (categoriaRepo.count() == 0) {
-                Categoria cafe = categoria(categoriaRepo, "Cafe");
+                // Datos de ejemplo (placeholder). Reemplazar por el catalogo real del cliente.
                 Categoria postres = categoria(categoriaRepo, "Postres");
+                Categoria pasteles = categoria(categoriaRepo, "Pasteles");
                 Categoria panaderia = categoria(categoriaRepo, "Panaderia");
-                Categoria bebidasFrias = categoria(categoriaRepo, "Bebidas frias");
+                Categoria temporada = categoria(categoriaRepo, "Temporada");
 
                 productoRepo.saveAll(List.of(
-                        producto("Espresso", "Shot doble de cafe de origen", "1200", cafe, true),
-                        producto("Capuchino", "Espresso con leche vaporizada y espuma", "1900", cafe, true),
-                        producto("Latte de vainilla", "Cafe con leche y jarabe de vainilla", "2100", cafe, false),
-                        producto("Cheesecake de fresa", "Porcion con salsa de fresa natural", "2800", postres, true),
-                        producto("Brownie con nuez", "Brownie tibio de chocolate", "2200", postres, false),
-                        producto("Croissant de mantequilla", "Horneado del dia", "1500", panaderia, false),
-                        producto("Pan de banano", "Rebanada con nueces", "1600", panaderia, false),
-                        producto("Frappe de moka", "Bebida fria batida con hielo", "2600", bebidasFrias, true),
-                        producto("Limonada de hierbabuena", "Limonada natural de la casa", "1800", bebidasFrias, false)
+                        producto("Cheesecake de fresa", "Porcion individual con salsa de fresa natural", "2800", postres, true),
+                        producto("Brownie con nuez", "Brownie de chocolate semiamargo", "2200", postres, false),
+                        producto("Tres leches", "Bizcocho humedo con crema y canela", "2500", postres, true),
+                        producto("Pastel de chocolate", "Por encargo, minimo 8 porciones", null, pasteles, true),
+                        producto("Pastel red velvet", "Relleno de queso crema, por encargo", null, pasteles, false),
+                        producto("Cupcakes decorados", "Caja de 6, decoracion a eleccion", null, pasteles, false),
+                        producto("Croissant de mantequilla", "Hojaldre horneado del dia", "1500", panaderia, false),
+                        producto("Pan de banano", "Con nueces, unidad o molde", "1600", panaderia, false),
+                        producto("Rosca navidena", "Disponible en diciembre, por encargo", null, temporada, true)
                 ));
             }
         };
@@ -91,7 +92,8 @@ public class DataLoader {
         Producto p = new Producto();
         p.setNombre(nombre);
         p.setDescripcion(descripcion);
-        p.setPrecio(new BigDecimal(precio));
+        p.setPrecio(precio == null ? null : new BigDecimal(precio));
+        p.setBajoPedido(precio == null);
         p.setCategoria(categoria);
         p.setDisponible(true);
         p.setDestacado(destacado);

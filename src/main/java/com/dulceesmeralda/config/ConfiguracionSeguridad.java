@@ -25,6 +25,7 @@ public class ConfiguracionSeguridad {
                 .requestMatchers(
                         "/",
                         "/menu/**",
+                        "/contacto",
                         "/registro/**",
                         "/login",
                         "/error",

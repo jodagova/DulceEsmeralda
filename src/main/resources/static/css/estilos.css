@@ -1,54 +1,128 @@
 :root {
-    --esmeralda: #1f7a5a;
-    --esmeralda-oscuro: #14503b;
-    --crema: #f7f3ec;
+    --crema: #fbf5e9;
+    --crema-oscura: #f2e7d0;
+    --verde: #4e7b4e;
+    --verde-oscuro: #35563c;
+    --dorado: #e0a550;
+    --fresa: #c4453b;
+    --texto: #3d3a34;
 }
 
 body {
     background-color: var(--crema);
-    font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    font-family: "Nunito Sans", "Segoe UI", Arial, sans-serif;
 }
 
+h1, h2, h3, .navbar-brand .brand-nombre {
+    font-family: "Playfair Display", Georgia, serif;
+}
+
+/* NAVBAR */
 .navbar-esmeralda {
-    background-color: var(--esmeralda);
+    background-color: var(--crema);
+    border-bottom: 1px solid var(--crema-oscura);
 }
 
-.footer-esmeralda {
-    background-color: var(--esmeralda-oscuro);
+.navbar-esmeralda .nav-link,
+.navbar-esmeralda .navbar-text {
+    color: var(--verde-oscuro) !important;
+    font-weight: 600;
+}
+
+.navbar-esmeralda .nav-link:hover {
+    color: var(--dorado) !important;
+}
+
+.brand-logo {
+    height: 44px;
+    width: auto;
+}
+
+.brand-nombre {
+    color: var(--verde-oscuro);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+.navbar-esmeralda .btn-outline-light {
+    color: var(--verde-oscuro);
+    border-color: var(--verde);
+}
+
+.navbar-esmeralda .btn-outline-light:hover {
+    background-color: var(--verde);
     color: #fff;
 }
 
-.text-esmeralda {
-    color: var(--esmeralda) !important;
+/* HERO */
+.hero-esmeralda {
+    background-color: var(--crema-oscura);
+    padding: 4rem 0;
+    text-align: center;
 }
 
+.hero-esmeralda .hero-logo {
+    max-width: 220px;
+    height: auto;
+    margin-bottom: 1rem;
+}
+
+.hero-esmeralda h1 {
+    color: var(--verde-oscuro);
+}
+
+.hero-esmeralda .lead {
+    color: var(--texto);
+}
+
+/* BOTONES */
 .btn-esmeralda {
-    background-color: var(--esmeralda);
-    border-color: var(--esmeralda);
+    background-color: var(--verde);
+    border-color: var(--verde);
     color: #fff;
 }
 
 .btn-esmeralda:hover {
-    background-color: var(--esmeralda-oscuro);
-    border-color: var(--esmeralda-oscuro);
+    background-color: var(--verde-oscuro);
+    border-color: var(--verde-oscuro);
     color: #fff;
 }
 
-.hero-esmeralda {
-    min-height: 320px;
-    background: linear-gradient(rgba(20, 80, 59, 0.75), rgba(20, 80, 59, 0.75)),
-                url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1400&q=60") center/cover;
-}
+.text-esmeralda { color: var(--verde) !important; }
+.text-dorado { color: var(--dorado) !important; }
 
+/* TARJETAS */
 .categoria-card,
 .producto-card {
     border: none;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    background-color: #fff;
+    box-shadow: 0 2px 12px rgba(53, 86, 60, 0.08);
     transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .categoria-card:hover,
 .producto-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 20px rgba(53, 86, 60, 0.15);
+}
+
+.badge-bajopedido {
+    background-color: var(--dorado);
+    color: #fff;
+}
+
+/* FOOTER */
+.footer-esmeralda {
+    background-color: var(--verde-oscuro);
+    color: #f4efe4;
+}
+
+.footer-esmeralda a { color: #f4efe4; }
+.footer-esmeralda .footer-logo {
+    height: 60px;
+    width: auto;
+    background: var(--crema);
+    padding: 4px;
+    border-radius: 8px;
 }

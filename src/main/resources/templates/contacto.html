@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{general/fragmentos :: head}"></head>
+<body>
+
+<header th:replace="~{general/fragmentos :: header}"></header>
+
+<main class="container my-5" style="max-width: 640px;">
+    <h1 class="h3 mb-3">Pedidos y consultas</h1>
+    <p class="text-muted">
+        Toda la reposteria se elabora <strong>bajo pedido</strong>. Escribinos con anticipacion
+        para reservar tu fecha; los pasteles y encargos especiales se cotizan segun tamano y decoracion.
+    </p>
+
+    <ul class="list-group my-4">
+        <li class="list-group-item d-flex align-items-center gap-3">
+            <i class="fa-brands fa-instagram fa-lg text-esmeralda"></i>
+            <a href="https://www.instagram.com/dulce_esmeralda_sl/" target="_blank" rel="noopener">@dulce_esmeralda_sl</a>
+        </li>
+        <li class="list-group-item d-flex align-items-center gap-3">
+            <i class="fa-brands fa-whatsapp fa-lg text-esmeralda"></i>
+            <span class="text-muted">Numero por confirmar con el cliente</span>
+        </li>
+        <li class="list-group-item d-flex align-items-center gap-3">
+            <i class="fa-solid fa-location-dot fa-lg text-esmeralda"></i>
+            <span class="text-muted">Zona de entrega por confirmar</span>
+        </li>
+    </ul>
+
+    <a class="btn btn-esmeralda" href="https://www.instagram.com/dulce_esmeralda_sl/" target="_blank" rel="noopener">
+        <i class="fa-brands fa-instagram"></i> Escribir por Instagram
+    </a>
+</main>
+
+<footer th:replace="~{general/fragmentos :: footer}"></footer>
+</body>
+</html>

@@ -6,7 +6,7 @@
 <header th:replace="~{general/fragmentos :: header}"></header>
 
 <main class="container my-5">
-    <h1 class="h3 mb-4" th:text="#{menu.titulo}">Nuestro menu</h1>
+    <h1 class="h3 mb-4" th:text="#{menu.titulo}">Catalogo</h1>
 
     <form class="row g-2 mb-4" method="get" th:action="@{/menu}">
         <div class="col-sm-8 col-md-6">
@@ -33,9 +33,11 @@
                     <h3 class="h5" th:text="${p.nombre}">Producto</h3>
                     <p class="text-muted small flex-grow-1" th:text="${p.descripcion}">Descripcion</p>
                     <div class="d-flex justify-content-between align-items-center">
-                        <span class="fw-bold text-esmeralda">
+                        <span class="fw-bold text-esmeralda" th:if="${p.precio != null}">
                             &#8353; <span th:text="${#numbers.formatDecimal(p.precio, 1, 'COMMA', 0, 'POINT')}">0</span>
                         </span>
+                        <span class="badge badge-bajopedido" th:unless="${p.precio != null}"
+                              th:text="#{menu.bajopedido}">Bajo pedido</span>
                         <span class="badge text-bg-light" th:if="${p.categoria != null}"
                               th:text="${p.categoria.descripcion}">Categoria</span>
                     </div>
@@ -46,6 +48,11 @@
             <p class="text-muted">No se encontraron productos.</p>
         </div>
     </div>
+
+    <p class="text-muted small mt-4">
+        Los precios son de referencia. Para pasteles y encargos el precio final se cotiza por
+        <a href="https://www.instagram.com/dulce_esmeralda_sl/" target="_blank" rel="noopener">Instagram</a>.
+    </p>
 </main>
 
 <footer th:replace="~{general/fragmentos :: footer}"></footer>

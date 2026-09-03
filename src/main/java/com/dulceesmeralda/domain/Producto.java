@@ -3,14 +3,13 @@ package com.dulceesmeralda.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import lombok.Data;
 
 /**
- * Producto del menu de la cafeteria (bebida, postre, reposteria, etc.).
+ * Producto de reposteria: postre, pastel, temporada, etc.
  */
 @Data
 @Entity
@@ -32,15 +31,21 @@ public class Producto implements Serializable {
     @Column(length = 500)
     private String descripcion;
 
-    @NotNull(message = "El precio no puede ser nulo")
+    /**
+     * Precio de referencia. Puede quedar vacio cuando el producto es solo por
+     * pedido y se cotiza segun tamano o decoracion ({@link #bajoPedido}).
+     */
     @DecimalMin(value = "0.01", message = "El precio debe ser mayor que cero")
     @Column(precision = 12, scale = 2)
     private BigDecimal precio;
 
+    /** Se elabora por encargo; el precio final se cotiza por DM. */
+    private boolean bajoPedido = true;
+
     @Column(length = 1024)
     private String rutaImagen;
 
-    /** Disponible para venta hoy. */
+    /** Visible en el catalogo. */
     private boolean disponible = true;
 
     /** Aparece destacado en la portada. */

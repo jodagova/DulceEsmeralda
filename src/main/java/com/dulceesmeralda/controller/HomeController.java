@@ -10,4 +10,9 @@ public class HomeController {
     public String accesoDenegado() {
         return "acceso_denegado";
     }
+
+    @GetMapping("/contacto")
+    public String contacto() {
+        return "contacto";
+    }
 }

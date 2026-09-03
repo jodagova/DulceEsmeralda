@@ -39,7 +39,11 @@
         <tr th:each="p : ${productos}">
             <td th:text="${p.nombre}">-</td>
             <td th:text="${p.categoria != null ? p.categoria.descripcion : '-'}">-</td>
-            <td class="text-end" th:text="${#numbers.formatDecimal(p.precio, 1, 'COMMA', 0, 'POINT')}">0</td>
+            <td class="text-end">
+                <span th:if="${p.precio != null}"
+                      th:text="${#numbers.formatDecimal(p.precio, 1, 'COMMA', 0, 'POINT')}">0</span>
+                <span th:unless="${p.precio != null}" class="text-muted" th:text="#{menu.bajopedido}">Bajo pedido</span>
+            </td>
             <td><i class="fa-solid" th:classappend="${p.disponible} ? 'fa-check text-success' : 'fa-xmark text-muted'"></i></td>
             <td><i class="fa-solid" th:classappend="${p.destacado} ? 'fa-star text-warning' : 'fa-minus text-muted'"></i></td>
         </tr>
